@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Manager</title>
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <h2>Student Manager</h2>
+
+  <form id="studentForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="course" placeholder="Course" required>
+    <button type="submit">Add Student</button>
+  </form>
+
+  <h3>All Students</h3>
+  <ul id="studentList"></ul>
+</body>
+</html>
