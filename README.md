@@ -110,6 +110,7 @@ python -m pytest tests/ --cov=app --cov-report=term-missing
 - CRUD logic via mocked MySQL
 
 ## 📸 Test Coverage Screenshot
+![Test Coverage](api_test.png)
 
   
 ## 📌 Notes
