@@ -1,26 +1,26 @@
 # 🧠 Student Manager API (Flask + MySQL)
 
-This project is built as part of the **Keploy API Fellowship**. It is a fully functional backend API (with optional frontend) to manage student data using Python Flask and MySQL.
-
+This project was developed as part of the **Keploy API Fellowship**. It is a full-stack API project built with **Flask** and **MySQL**, including a frontend interface and robust testing with **Pytest** and **mocking**.
 ---
 
 ## ✅ Features
 
-- RESTful API built with Flask
-- Database integration using MySQL
-- CRUD operations on student data
-- Simple frontend UI to interact with APIs
-- Tested via `curl` commands
+- RESTful API with Python Flask
+- MySQL database integration
+- CRUD operations on student records
+- HTML + JS frontend for user interaction
+- ✅ Unit & API tests using `pytest`
+- ✅ Mocked DB tests for safe, fast coverage
 
 ---
 
 ## ⚙️ Technologies Used
 
-- Python
-- Flask
+- Python + Flask
 - MySQL
-- HTML, JavaScript (for frontend)
-- curl (for API testing)
+- HTML + JavaScript (Frontend)
+- Pytest + pytest-cov (Testing + Coverage)
+- Flask-CORS, Flask-MySQLdb
 
 ---
 
@@ -33,6 +33,8 @@ student-api/
 │ └── index.html 
 ├── static/
 │ └── script.js
+├── tests/
+│ └── test_api.py
 ├── requirements.txt
 ├── README.md 
 ```
@@ -63,6 +65,9 @@ Update your MySQL username/password in db_config.py if needed.
 ```bash
 pip install flask flask-mysqldb flask-cors
 
+pip install flask flask-mysqldb flask-cors pytest pytest-cov
+
+
 ```
 
 ## ▶️ Run the Flask App
@@ -80,28 +85,7 @@ App will run at: http://localhost:5000
 | PUT    | `/api/students/<id>` | Update student by ID |
 | DELETE | `/api/students/<id>` | Delete student by ID |
 
-## 🔁 API Testing with curl
 
-### 📥 Add Student
-```
-curl -X POST http://localhost:5000/api/students -H "Content-Type: application/json" -d "{\"name\":\"Arpit Kaushal\", \"email\":\"arpit@keploy.com\", \"course\":\"Flask + MySQL\"}"
-```
-
-### 📤 Get All Students
-```
-curl http://localhost:5000/api/students
-```
-### 📝 Update Student
-
-```
-curl -X PUT http://localhost:5000/api/students/2 -H "Content-Type: application/json" -d "{\"name\":\"Updated Arpit\", \"email\":\"updated@x.com\", \"course\":\"AI/ML\"}"
-```
-
-### ❌ Delete Student
-
-```
-curl -X DELETE http://localhost:5000/api/students/2
-```
 
 ## 🌐 Frontend
 
@@ -113,8 +97,25 @@ http://localhost:5000/
 - 📋 Dynamic list of all students
 - ❌ Delete student button
 
+## 🧪 Running Tests
+### ✅ Run Unit + API Tests (Mocked DB)
+```
+python -m pytest tests/ --cov=app --cov-report=term-missing
+
+```
+
+### ✅ What is Tested:
+- API response structure
+- Request handling
+- CRUD logic via mocked MySQL
+
+## 📸 Test Coverage Screenshot
+![Test Coverage](api_test.png)
+
+  
 ## 📌 Notes
 
-- The API is fully functional locally.
-- You can deploy it using Render, Heroku, or locally via ngrok if required for demos.
-- curl commands tested and verified.
+- API works fully with MySQL (studentdb) when running Flask app
+- Tests run independently without database (mocked)
+- Tested using Pytest and coverage
+- Can be deployed using Render, Railway, Heroku, etc.
